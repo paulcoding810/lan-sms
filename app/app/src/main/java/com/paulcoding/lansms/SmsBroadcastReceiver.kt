@@ -45,10 +45,10 @@ fun sendMessageToLAN(message: String, ipAddress: String, port: Int = PORT) {
 
         CoroutineScope(Dispatchers.IO).launch {
             socket.send(packet)
+            println("Message sent to $ipAddress:$port")
             socket.close()
         }
 
-        println("Message sent to $ipAddress:$port")
     } catch (e: Exception) {
         e.printStackTrace()
     }
